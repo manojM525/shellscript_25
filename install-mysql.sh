@@ -1,16 +1,16 @@
 #!/bin/bash
 
-ID=$(id) 
+ID=$(id -u) 
 
 if [ $ID -ne 0 ]
 then 
-""echo "not a root user"
+echo "not a root user"
 exit 1
 else
 echo "you are a root user"
 fi
 
-dnf install mysql_server -y
+dnf install mysql-server -y
 
 if [ "#?" -ne 0 ]
 then 
