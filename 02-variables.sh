@@ -1,3 +1,3 @@
 #!/bin/bash 
-DATE=$(data)
+DATE=$(date)
 echo " the script started executing at: $DATE"
