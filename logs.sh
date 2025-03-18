@@ -1,6 +1,9 @@
 #!/bin/bash
 
 ID=$(id -u) 
+TIMESTAMP=$(date + " %Y-%m-%d_%H:%M:%S")
+SCRIPT_NAME=$($?)
+LOGFILE=/temp/$SCRIPT_NAME-$TIMESTAMP.log
 
 VALIDATE() {
 
@@ -14,7 +17,7 @@ fi
 
 }
 
-
+echo "the script started running at: $TIMESTAMP" &>> $LOGFILE
 
 if [ $ID -ne 0 ]
 then 
@@ -24,8 +27,8 @@ else
 echo "you are a root user"
 fi
 
-dnf install mysql -y
+dnf install mysql -y &>> $LOGFILE
 VALIDATE $? "installation of MYSQL"  #deploying packages using custom messages
 
-dnf install git -y
+dnf install git -y &>> $LOGFILE
 VALIDATE $? "installation of GIT" 
