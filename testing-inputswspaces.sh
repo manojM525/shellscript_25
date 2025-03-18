@@ -8,7 +8,7 @@ do
 echo "$input"
 done 
 
-for ouput in "$VARIABLE1" ;
+for ouput in " $VARIABLE1 " ;
 do 
-echo "$output"
+echo " $output "
 done
